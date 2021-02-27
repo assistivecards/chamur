@@ -1,0 +1,363 @@
+import React from 'react';
+import { StyleSheet, Text, View, ScrollView, ActivityIndicator, Dimensions, TouchableWithoutFeedback, TouchableOpacity, Image, PanResponder, Animated } from 'react-native';
+import Constants from 'expo-constants';
+import Svg, { Path, Line, Circle, Polyline, Rect } from 'react-native-svg';
+import * as ScreenOrientation from 'expo-screen-orientation';
+
+import API from '../../api'
+
+import TopBar from '../../components/TopBar'
+import Promo from '../../components/Promo'
+import Profile from '../../components/Profile'
+
+function rgb(hex, alpha) {
+  var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+  let channel = {
+    r: parseInt(result[1], 16),
+    g: parseInt(result[2], 16),
+    b: parseInt(result[3], 16)
+  }
+  return result ? `rgba(${channel.r},${channel.g},${channel.b},${alpha})` : null;
+}
+
+export default class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      userSettings: false,
+      pan: new Animated.ValueXY(),
+      lock: API.locked,
+      lockByUser: false,
+      lockAnim: new Animated.Value(API.locked ? 0 : 1)
+    };
+
+    this.state.panResponder = PanResponder.create({
+      onStartShouldSetPanResponder: () => true,
+      onPanResponderMove: Animated.event([
+        null,
+        {
+          dx: this.state.pan.x, // x,y are Animated.Value
+          dy: this.state.pan.y
+        }
+      ], { useNativeDriver: false }),
+      onPanResponderRelease: () => {
+        let xVal = this.state.pan.x._value;
+        let yVal = this.state.pan.y._value;
+        if(yVal < 25 && yVal > -25){
+          if(xVal > -170 && xVal < -90){
+            console.log("UNLOCKED!!!");
+
+            Animated.timing(this.state.lockAnim, {
+              toValue: 0,
+              duration: 200,
+              useNativeDriver: false
+            }).start();
+            setTimeout(() => {
+              this.setState({lock: false});
+              API.locked = false;
+            }, 200)
+          }
+        }
+        Animated.spring(
+          this.state.pan, // Auto-multiplexed
+          {
+            toValue: { x: 0, y: 0 },
+            useNativeDriver: false
+          } // Back to zero
+        ).start();
+      }
+    });
+  }
+
+  componentDidMount(){
+    if(API.locked){
+      this.state.lockAnim.setValue(1);
+    }else{
+      this.state.lockAnim.setValue(0);
+    }
+    API.event.on("refresh", this._refreshHandler)
+    API.hit("Settings");
+    ScreenOrientation.lockAsync(ScreenOrientation.OrientationLock.PORTRAIT_UP);
+  }
+
+  _refreshHandler = () => {
+    this.forceUpdate();
+  };
+
+  componentWillUnmount(){
+    API.event.removeListener("refresh", this._refreshHandler)
+    ScreenOrientation.unlockAsync();
+  }
+
+
+  lockPress(){
+    this.setState({
+      lock: true,
+      lockByUser: true
+    })
+    API.locked = true;
+
+    Animated.timing(this.state.lockAnim, {
+      toValue: 1,
+      duration: 400,
+      useNativeDriver: false
+  }).start();
+
+    setTimeout(() => {
+      this.props.navigation.pop();
+    }, 1000);
+  }
+
+  render() {
+    let user = API.user;
+
+    let width = Dimensions.get("window").width;
+
+    let lockBG = this.state.lockAnim.interpolate({
+      inputRange: [0, 1],
+      outputRange: [rgb(API.config.backgroundColor, 0), rgb(API.config.backgroundColor, 0.8)]
+    });
+
+    return (
+      <>
+        <TopBar back={() => this.props.navigation.pop()} backgroundColor={API.config.backgroundColor} lock={"locked"} lockPress={this.lockPress.bind(this)}/>
+        <ScrollView style={{flex: 1, backgroundColor: API.config.backgroundColor}}>
+          <Profile navigation={this.props.navigation}/>
+          <View style={styles.content}>
+            <View style={styles.userSettings}>
+
+              {API.config.language &&
+                <TouchableOpacity style={[styles.selectionItem, {flexDirection: API.isRTL() ? "row-reverse" : "row"}]} onPress={() => this.props.navigation.push("Language")}>
+                  <Svg height={24} width={24} viewBox="0 0 24 24" style={styles.selectionIcon} strokeWidth="2" stroke="#333" fill="none" strokeLinecap="round" strokeLinejoin="round">
+                    <Path stroke="none" d="M0 0h24v24H0z"/>
+                    <Path d="M5 7h7m-2 -2v2a5 7 0 0 1 -5 8m1 -4a7 4 0 0 0 6.7 4" />
+                    <Path d="M11 19l4 -9l4 9m-.9 -2h-6.2" />
+                  </Svg>
+                  <Text style={[API.styles.b, {fontSize: 15}]}>{API.t("settings_selection_language")}</Text>
+                </TouchableOpacity>
+              }
+
+              {API.config.accent &&
+                <TouchableOpacity style={[styles.selectionItem, {flexDirection: API.isRTL() ? "row-reverse" : "row"}]} onPress={() => this.props.navigation.push("Accent")}>
+                  <Svg height={24} width={24} viewBox="0 0 24 24" style={styles.selectionIcon} strokeWidth="2" stroke="#333" fill="none" strokeLinecap="round" strokeLinejoin="round">
+                    <Path d="M0 0h24v24H0z" stroke="none"/>
+                    <Path d="M11.5 3a17 17 0 0 0 0 18"/>
+                    <Path d="M12.5 3a17 17 0 0 1 0 18"/>
+                    <Circle cx="12" cy="12" r="9"/>
+                    <Line x1="3.6" x2="20.4" y1="9" y2="9"/>
+                    <Line x1="3.6" x2="20.4" y1="15" y2="15"/>
+                  </Svg>
+                  <Text style={[API.styles.b, {fontSize: 15}]}>{API.t("settings_selection_accent")}</Text>
+                </TouchableOpacity>
+              }
+
+              {API.config.tts &&
+                <TouchableOpacity style={[styles.selectionItem, {flexDirection: API.isRTL() ? "row-reverse" : "row"}]} onPress={() => this.props.navigation.push("Voice")}>
+                  <Svg height={24} width={24} viewBox="0 0 24 24" style={styles.selectionIcon} strokeWidth="2" stroke="#333" fill="none" strokeLinecap="round" strokeLinejoin="round">
+                    <Path stroke="none" d="M0 0h24v24H0z"/>
+                    <Path d="M15 8a5 5 0 0 1 0 8" />
+                    <Path d="M17.7 5a9 9 0 0 1 0 14" />
+                    <Path d="M6 15 h-2a1 1 0 0 1 -1 -1v-4a1 1 0 0 1 1 -1h2l3.5 -4.5a.8 .8 0 0 1 1.5 .5v14a.8 .8 0 0 1 -1.5 .5l-3.5 -4.5" />
+                  </Svg>
+                  <Text style={[API.styles.b, {fontSize: 15}]}>{API.t("settings_selection_voice")}</Text>
+                </TouchableOpacity>
+              }
+
+              <TouchableOpacity style={[styles.selectionItem, {flexDirection: API.isRTL() ? "row-reverse" : "row"}]} onPress={() => this.props.navigation.push("Notification")}>
+                <Svg height={24} width={24} viewBox="0 0 24 24" style={styles.selectionIcon} strokeWidth="2" stroke="#333" fill="none" strokeLinecap="round" strokeLinejoin="round">
+                  <Path stroke="none" d="M0 0h24v24H0z"/>
+                  <Path d="M9 7 h-3a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-3" />
+                  <Circle cx="16" cy="8" r="3" />
+                </Svg>
+                <Text style={[API.styles.b, {fontSize: 15}]}>{API.t("settings_selection_notifications")}</Text>
+              </TouchableOpacity>
+
+              <TouchableOpacity style={[styles.selectionItem, {flexDirection: API.isRTL() ? "row-reverse" : "row"}]} onPress={() => this.props.navigation.push("Accessibility")}>
+                <Svg height={24} width={24} viewBox="0 0 24 24" style={styles.selectionIcon} strokeWidth="2" stroke="#333" fill="none" strokeLinecap="round" strokeLinejoin="round">
+                  <Path d="M0 0h24v24H0z" stroke="none"/>
+                  <Path d="M10 16.5l2 -3l2 3m-2 -3v-2l3 -1m-6 0l3 1"/>
+                  <Circle cx="12" cy="12" r="9"/>
+                  <Circle cx="12" cy="7.5" r=".5"/>
+                </Svg>
+                <Text style={[API.styles.b, {fontSize: 15}]}>{API.t("settings_selection_accessibility")}</Text>
+              </TouchableOpacity>
+
+              <TouchableOpacity style={[styles.selectionItem, {flexDirection: API.isRTL() ? "row-reverse" : "row"}]} onPress={() => this.props.navigation.push("Subscription")}>
+                <Svg height={24} width={24} viewBox="0 0 24 24" style={styles.selectionIcon} strokeWidth="2" stroke="#333" fill="none" strokeLinecap="round" strokeLinejoin="round">
+                  <Path stroke="none" d="M0 0h24v24H0z"/>
+                  <Path d="M6 5h12l3 5l-8.5 9.5a.7 .7 0 0 1 -1 0l-8.5 -9.5l3 -5" />
+                  <Path d="M10 12l-2 -2.2l.6 -1" />
+                </Svg>
+                <Text style={[API.styles.b, {fontSize: 15}]}>{API.t("settings_selection_subscriptions")}</Text>
+              </TouchableOpacity>
+            </View>
+
+            <View style={styles.appSettings}>
+              <View style={styles.selectionCarrier}>
+
+                <TouchableOpacity onPress={() => this.props.navigation.push("Browser", {link: "https://dreamoriented.org/huni-feedback/"})}>
+                  <View style={[styles.selectionItem, {flexDirection: API.isRTL() ? "row-reverse" : "row"}]}>
+                    <Svg height={24} width={24} viewBox="0 0 24 24" style={styles.selectionIcon} strokeWidth="2" stroke="#333" fill="none" strokeLinecap="round" strokeLinejoin="round">
+                      <Path stroke="none" d="M0 0h24v24H0z"/>
+                      <Line x1="10" y1="14" x2="21" y2="3" />
+                      <Path d="M21 3L14.5 21a.55 .55 0 0 1 -1 0L10 14L3 10.5a.55 .55 0 0 1 0 -1L21 3" />
+                    </Svg>
+                    <Text style={[API.styles.b, {fontSize: 15}]}>{API.t("settings_selection_sendFeedback")}</Text>
+                  </View>
+                </TouchableOpacity>
+
+                <TouchableOpacity onPress={() => this.props.navigation.push("Legal")}>
+                  <View style={[styles.selectionItem, {flexDirection: API.isRTL() ? "row-reverse" : "row"}]}>
+                    <Svg height={24} width={24} viewBox="0 0 24 24" style={styles.selectionIcon} strokeWidth="2" stroke="#333" fill="none" strokeLinecap="round" strokeLinejoin="round">
+                      <Path stroke="none" d="M0 0h24v24H0z"/>
+                      <Path d="M15 21h-9a3 3 0 0 1 -3 -3v-1h10v2a2 2 0 0 0 4 0v-14a2 2 0 1 1 2 2h-2m2 -4h-11a3 3 0 0 0 -3 3v11" />
+                      <Line x1="9" y1="7" x2="13" y2="7" />
+                      <Line x1="9" y1="11" x2="13" y2="11" />
+                    </Svg>
+                    <Text style={[API.styles.b, {fontSize: 15}]}>{API.t("settings_selection_aboutapp")}</Text>
+                  </View>
+                </TouchableOpacity>
+
+                {false &&
+                  <TouchableOpacity style={[[styles.selectionItem, {flexDirection: API.isRTL() ? "row-reverse" : "row"}], {borderBottomWidth: 0}]} onPress={() => this.props.navigation.push("Remove")}>
+                    <Svg height={24} width={24} viewBox="0 0 24 24" style={styles.selectionIcon} strokeWidth="2" stroke="#333" fill="none" strokeLinecap="round" strokeLinejoin="round">
+                      <Path stroke="none" d="M0 0h24v24H0z"/>
+                      <Line x1="4" y1="7" x2="20" y2="7" />
+                      <Line x1="10" y1="11" x2="10" y2="17" />
+                      <Line x1="14" y1="11" x2="14" y2="17" />
+                      <Path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12" />
+                      <Path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3" />
+                    </Svg>
+                    <Text style={[API.styles.b, {fontSize: 15}]}>{API.t("settings_selection_removeMyData")}</Text>
+                  </TouchableOpacity>
+                }
+                <View style={{height: 10}}></View>
+              </View>
+              {!API.isPremium() &&
+                <Promo showPremium={() => this.props.navigation.push("Premium")}/>
+              }
+            </View>
+            <View style={API.styles.iosBottomPadder}></View>
+          </View>
+        </ScrollView>
+        {
+          this.state.lock &&
+          <View style={{width: "100%", height: "100%", position: "absolute", top: 0, left: 0}}>
+            <TopBar back={() => this.props.navigation.pop()} backgroundColor={API.config.backgroundColor}/>
+            <Animated.View style={{backgroundColor: lockBG, flex: 1, alignItems: "center", justifyContent: "center"}}>
+              {
+                this.state.lockByUser &&
+                  <View style={{width: 60, height: 60, backgroundColor: "#fff", alignItems: "center", justifyContent: "center", borderRadius: 30}}>
+                    <ActivityIndicator color={API.config.backgroundColor}/>
+                  </View>
+              }
+              {
+                !this.state.lockByUser &&
+                <Animated.View style={{flex: 1, alignItems: "center", justifyContent: "center", opacity: this.state.lockAnim}}>
+                  <View style={[styles.shadow, {alignItems: "center", justifyContent: "center", backgroundColor: API.config.backgroundColor, margin: 20, borderRadius: 40, paddingVertical: 30}]}>
+                    <View style={{marginBottom: 0}}>
+                      <Image source={require("../../assets/mascot.png")} style={{width: 120, height: 120}} resizeMode={"contain"}/>
+                    </View>
+                    <Text style={[API.styles.h1, {color: "#fff", marginTop: 15}]}>{API.t("settings_locked_title")}</Text>
+                    <Text style={[API.styles.pHome, {textAlign: "center", marginTop: 5}]}>{API.t("settings_locked_description")}</Text>
+                    <View style={{flexDirection: "row", justifyContent: "center", marginTop: 20}}>
+                      <View style={{width: 50, height: 50, backgroundColor: "#fff", justifyContent: "center", alignItems: "center", borderRadius: 25}}>
+                        <Svg width={30} height={30} viewBox="0 0 24 24" strokeLinecap="round" strokeWidth="2" stroke={API.config.backgroundColor} fill="none">
+                          <Path stroke="none" d="M0 0h24v24H0z"/>
+                          <Rect x="5" y="11" width="14" height="10" rx="2" />
+                          <Circle cx="12" cy="16" r="1" />
+                          <Path d="M8 11v-5a4 4 0 0 1 8 0" />
+                        </Svg>
+                      </View>
+                      <View style={{width: 100}}></View>
+                      <Animated.View
+                        {...this.state.panResponder.panHandlers}
+                        style={this.state.pan.getLayout()}>
+                        <View style={{width: 50, height: 50, backgroundColor: "#fff", justifyContent: "center", alignItems: "center", borderRadius: 25}}>
+                          <Svg width={30} height={30} viewBox="0 0 24 24" strokeLinecap="round" strokeWidth="2" stroke={API.config.backgroundColor} fill="none">
+                            <Path stroke="none" d="M0 0h24v24H0z"/>
+                            <Circle cx="8" cy="15" r="4" />
+                            <Line x1="10.85" y1="12.15" x2="19" y2="4" />
+                            <Line x1="18" y1="5" x2="20" y2="7" />
+                            <Line x1="15" y1="8" x2="17" y2="10" />
+                          </Svg>
+                        </View>
+                      </Animated.View>
+                    </View>
+                  </View>
+                </Animated.View>
+              }
+            </Animated.View>
+          </View>
+        }
+      </>
+    );
+  }
+}
+
+const styles = StyleSheet.create({
+  account: {
+    paddingVertical: 10,
+    paddingHorizontal: 30,
+    backgroundColor: "#F7F7F7",
+    paddingBottom: 15
+  },
+  content: {
+    backgroundColor: "#fff",
+    position: "relative",
+    borderTopLeftRadius: 30,
+    borderTopRightRadius: 30,
+    paddingTop: 20
+  },
+  userCarrier: {
+    flexDirection: "row",
+    justifyContent: "space-between"
+  },
+  userLeft: {
+    flexDirection: "row"
+  },
+  image: {
+    width: 42,
+    height: 42,
+    borderRadius: 21,
+    marginRight: 10
+  },
+  userRight: {
+    flexDirection: "column",
+    justifyContent: "flex-start"
+  },
+  selectionCarrier: {
+    marginTop: 10
+  },
+  selectionItem: {
+    flexDirection: "row",
+    height: 44,
+    alignItems: "center",
+  },
+  selectionIcon: {
+    margin: 10,
+    marginRight: 20
+  },
+  userSettings: {
+    marginHorizontal: 30,
+    paddingBottom: 15,
+    paddingTop: 10,
+    borderBottomWidth: 1,
+    borderBottomColor: "#f1f1f1"
+  },
+  appSettings: {
+    marginHorizontal: 30,
+    paddingTop: 5,
+  },
+  shadow: {
+    shadowColor: "#000",
+    shadowOffset: {
+    	width: 0,
+    	height: 1,
+    },
+    shadowOpacity: 0.1,
+    shadowRadius: 4.22,
+
+    elevation: 3,
+  }
+});

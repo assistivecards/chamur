@@ -1,0 +1,49 @@
+{
+  "name": "spogy",
+  "displayName": "Spogy",
+  "analyticsKey": "UA-110111146-3",
+  "apiEndpoint": "https://leeloo.dreamoriented.org/",
+  "assetEndpoint": "https://api.assistivecards.com/",
+  "assetVersion": 215,
+  "planPrefix": "spogy_",
+  "config": {
+    "language": true,
+    "tts": true,
+    "accent": true,
+    "backgroundColor": "#6399B5",
+    "pFontColor": "#333333"
+  },
+  "storeId": {
+    "appStore": 1516921796,
+    "googlePlay": 4974702142318544442
+  },
+  "expo": {
+    "name": "spogy",
+    "slug": "spogy",
+    "version": "1.0.0",
+    "platforms": [
+      "ios",
+      "android",
+      "web"
+    ],
+    "ios": {
+      "bundleIdentifier": "org.dreamoriented.spogy",
+      "buildNumber": "1.0.0",
+      "requireFullScreen": true,
+      "supportsTablet": true,
+      "googleServicesFile": "./GoogleService-Info.plist"
+    },
+    "android": {
+      "package": "org.dreamoriented.spogy",
+      "permissions": [
+        "WAKE_LOCK"
+      ],
+      "versionCode": 100,
+      "googleServicesFile": "./google-services.json"
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "entryPoint": "node_modules/expo/AppEntry.js"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "languages": [
+    {
+      "code": "en",
+      "locale": ["en-US", "en-GB", "en-AU", "en-CA", "en-CB", "en-IN", "en-NZ"],
+      "support": ["ios", "android"],
+      "title": "English",
+      "native": "English",
+      "rightToLeft": false,
+      "readproof": true
+    }
+  ]
+}
