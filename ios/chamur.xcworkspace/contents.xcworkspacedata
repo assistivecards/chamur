@@ -2,12 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:huni">
+      location = "group:chamur.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:Pods/Pods.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:/Users/burak/Developer/chamur/ios/chamur.xcodeproj">
    </FileRef>
 </Workspace>

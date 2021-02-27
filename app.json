@@ -1,11 +1,11 @@
 {
-  "name": "spogy",
-  "displayName": "Spogy",
-  "analyticsKey": "UA-110111146-3",
+  "name": "chamur",
+  "displayName": "chamur",
+  "analyticsKey": "UA-110111146-4",
   "apiEndpoint": "https://leeloo.dreamoriented.org/",
   "assetEndpoint": "https://api.assistivecards.com/",
   "assetVersion": 215,
-  "planPrefix": "spogy_",
+  "planPrefix": "chamur_",
   "config": {
     "language": true,
     "tts": true,
@@ -18,8 +18,8 @@
     "googlePlay": 4974702142318544442
   },
   "expo": {
-    "name": "spogy",
-    "slug": "spogy",
+    "name": "chamur",
+    "slug": "chamur",
     "version": "1.0.0",
     "platforms": [
       "ios",
@@ -27,14 +27,14 @@
       "web"
     ],
     "ios": {
-      "bundleIdentifier": "org.dreamoriented.spogy",
+      "bundleIdentifier": "org.dreamoriented.chamur",
       "buildNumber": "1.0.0",
       "requireFullScreen": true,
       "supportsTablet": true,
       "googleServicesFile": "./GoogleService-Info.plist"
     },
     "android": {
-      "package": "org.dreamoriented.spogy",
+      "package": "org.dreamoriented.chamur",
       "permissions": [
         "WAKE_LOCK"
       ],

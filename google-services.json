@@ -1,34 +1,41 @@
 {
   "project_info": {
-    "project_number": "820330775632",
-    "project_id": "template-3fe56",
-    "storage_bucket": "template-3fe56.appspot.com"
+    "project_number": "488483669470",
+    "project_id": "chamur-d402c",
+    "storage_bucket": "chamur-d402c.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:820330775632:android:f338932447946fdd9cbd55",
+        "mobilesdk_app_id": "1:488483669470:android:ca4a5b5e93a2c605ad894f",
         "android_client_info": {
-          "package_name": "org.dreamoriented.template"
+          "package_name": "org.dreamoriented.chamur"
         }
       },
       "oauth_client": [
         {
-          "client_id": "820330775632-esj6ddaave132jr3qs9gd7dpfllnk8tb.apps.googleusercontent.com",
+          "client_id": "488483669470-375hdsch8i6bka7pdb2gs1afo2a22fvp.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBW73-IEbCg_9NZLTHYPyrJcj8u8NmhFHo"
+          "current_key": "AIzaSyA3h-WQEy0wtb5rysJeDMQyNGuhKv-WrOQ"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "820330775632-esj6ddaave132jr3qs9gd7dpfllnk8tb.apps.googleusercontent.com",
+              "client_id": "488483669470-375hdsch8i6bka7pdb2gs1afo2a22fvp.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "488483669470-0qqh1rpl724nmnsdp4f2kla9spl6dm8f.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "org.dreamoriented.chamur"
+              }
             }
           ]
         }

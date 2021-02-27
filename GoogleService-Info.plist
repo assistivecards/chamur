@@ -3,21 +3,21 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>820330775632-i28u1citdr41is43qgbdg48km35n7b8g.apps.googleusercontent.com</string>
+	<string>488483669470-0qqh1rpl724nmnsdp4f2kla9spl6dm8f.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.820330775632-i28u1citdr41is43qgbdg48km35n7b8g</string>
+	<string>com.googleusercontent.apps.488483669470-0qqh1rpl724nmnsdp4f2kla9spl6dm8f</string>
 	<key>API_KEY</key>
-	<string>AIzaSyCjrMT_Lcql09vxXN6yuobu_-BkeBFJnSc</string>
+	<string>AIzaSyCUC-o5nU315GYuG5eYLm2WAUZMgQ_Xj2A</string>
 	<key>GCM_SENDER_ID</key>
-	<string>820330775632</string>
+	<string>488483669470</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>org.dreamoriented.template</string>
+	<string>org.dreamoriented.chamur</string>
 	<key>PROJECT_ID</key>
-	<string>template-3fe56</string>
+	<string>chamur-d402c</string>
 	<key>STORAGE_BUCKET</key>
-	<string>template-3fe56.appspot.com</string>
+	<string>chamur-d402c.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -29,6 +29,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:820330775632:ios:80800801cf07f3c79cbd55</string>
+	<string>1:488483669470:ios:b4e831af52f270d2ad894f</string>
 </dict>
 </plist>
