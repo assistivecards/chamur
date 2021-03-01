@@ -26,6 +26,8 @@ allprojects {
         maven {
             // All of React Native (JS, Obj-C sources, Android binaries) is installed from npm
             url("$rootDir/../node_modules/react-native/android")
+            // NEWLY ADDED FOR CAMERA!!
+            url "$rootDir/../node_modules/expo-camera/android/maven"
         }
         maven {
             // Android JSC is installed from npm
