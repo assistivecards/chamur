@@ -1,3 +1,4 @@
+import * as tf from "@tensorflow/tfjs";
 import * as mobilenet from "@tensorflow-models/mobilenet";
 import { cameraWithTensors } from "@tensorflow/tfjs-react-native";
 import { Camera } from "expo-camera";
@@ -20,7 +21,7 @@ export function ModelView() {
 
   return (
     <View
-      style={{ flex: 1, backgroundColor: "black", justifyContent: "center" }}
+      style={{ flex: 1, backgroundColor: "#63b582", justifyContent: "center" }}
     >
       <PredictionList predictions={predictions} />
       <View style={{ borderRadius: 20, overflow: "hidden" }}>
@@ -40,31 +41,31 @@ function ModelCamera({ model, setPredictions }) {
     };
   }, []);
 
-  const onReady = React.useCallback(
-    (images) => {
-      const loop = async () => {
-        const nextImageTensor = images.next().value;
-        const predictions = await model.classify(nextImageTensor);
-        setPredictions(predictions);
-        raf.current = requestAnimationFrame(loop);
-      };
-      loop();
-    },
-    [setPredictions]
-  );
+  const onReady = (images) => {
+    const loop = () => {
+      const nextImageTensor = images.next().value;
 
-  return React.useMemo(
-    () => (
-      <CustomTensorCamera
-        width={size.width}
-        style={styles.camera}
-        type={Camera.Constants.Type.back}
-        onReady={onReady}
-        autorender
-      />
-    ),
-    [onReady, size.width]
-  );
+        model.classify(nextImageTensor).then(predictions => {
+          setPredictions(predictions);
+        });
+
+      //raf.current = requestAnimationFrame(loop);
+    };
+    setInterval(() => {
+      let batch = tf.tidy(() => loop());
+      tf.dispose(batch);
+    }, 1000);
+  }
+
+  return (
+    <CustomTensorCamera
+      width={size.width}
+      style={styles.camera}
+      type={Camera.Constants.Type.back}
+      onReady={onReady}
+      autorender
+    />
+  )
 }
 
 const textureSize = { width: 1080, height: 1920 };
