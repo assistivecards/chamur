@@ -4,6 +4,7 @@ import { StyleSheet, View, Dimensions, Image, Text, ScrollView, Animated, Easing
 import API from '../../api';
 import Svg, { Path, Ellipse, G } from 'react-native-svg';
 import * as ScreenOrientation from 'expo-screen-orientation';
+import * as Permissions from 'expo-permissions';
 
 export default class Setting extends React.Component {
 
@@ -77,7 +78,19 @@ export default class Setting extends React.Component {
 
   notificationEnabled(){
     API.registerForPushNotificationsAsync();
-    this.animateTransition("finish");
+    this.animateTransition("camera");
+  }
+
+  async cameraEnabled(){
+    const { status, permissions } = await Permissions.askAsync(Permissions.CAMERA);
+    if (status === 'granted') {
+      this.animateTransition("finish");
+    } else {
+      alert("This app requires camera feed permission to work, please update your app settings to allow camera access.");
+      this.animateTransition("finish");
+    }
+
+
   }
 
   createProfile(){
@@ -181,6 +194,20 @@ export default class Setting extends React.Component {
     )
   }
 
+  renderCameraAccess(){
+    return (
+      <View style={{flex: 1}}>
+        <View style={{flex: 1, justifyContent: "center", alignItems: "center", flexDirection: "column", padding: 30}}>
+          <Text style={[API.styles.h2, {color: "#fff", marginTop: 30, fontSize: 26, marginHorizontal: 0, textAlign: "center"}]}>{API.t("setup_camera_description")}</Text>
+          <Text style={[API.styles.pHome, {marginBottom: 35, marginHorizontal: 0, textAlign: "center"}]}>{API.t("setup_camera_description")}</Text>
+          <TouchableOpacity style={API.styles.whiteButton} onPress={() => this.cameraEnabled()}>
+            <Text style={{color: API.config.backgroundColor, fontWeight: "bold", fontSize: 18}}>{API.t("alert_ok")}</Text>
+          </TouchableOpacity>
+        </View>
+      </View>
+    )
+  }
+
   renderFinish(){
     return (
       <View style={{flex: 1}}>
@@ -211,6 +238,7 @@ export default class Setting extends React.Component {
           {this.state.page == "name" && this.renderName()}
           {this.state.page == "avatar" && this.renderAvatar()}
           {this.state.page == "notification" && this.renderNotification()}
+          {this.state.page == "camera" && this.renderCameraAccess()}
           {this.state.page == "finish" && this.renderFinish()}
         </Animated.View>
       </View>
