@@ -1,4 +1,4 @@
-water bottle
+water-bottle
 cup
 keyboard
 computer
