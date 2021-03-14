@@ -50,6 +50,9 @@
 	"settings_subscriptions_oneTimePayment": "One-time payment",
 	"settings_subscriptions_recurringPayment": "Recurring payment",
 
+	"settings_selection_apps": "All Apps",
+	"settings_selection_apps_new": "NEW",
+	"settings_apps_description": "Discover other apps made by Assistive Cards",
 
 	"settings_selection_signout": "Sign Out",
 	"settings_selection_sendFeedback": "Send Feedback",
@@ -62,11 +65,13 @@
 	"settings_aboutapp_description": "See more about the application and legal documents on this screen.",
 	"settings_selection_company": "About the Company",
 	"settings_selection_accessibility": "Accessibility",
-	"settings_accessibility_description": "Customize the accessibility properies of your AAC application",
+	"settings_accessibility_description": "Customize the accessibility properies of your application",
 	"settings_accessibility_sensory": "Sensory Preferences",
 	"settings_accessibility_sensory_description": "Customize the sensory input/output settings of the aac application",
 	"settings_accessibility_sensory_haptic": "Haptic & Vibration",
-	"settings_accessibility_sensory_haptic_description": "If enabled the app will give small haptic feedbacks when using app",
+	"settings_accessibility_sensory_haptic_description": "If enabled the app will give small haptic feedbacks when using it",
+	"settings_accessibility_sensory_pressIn": "Activate on Press In",
+	"settings_accessibility_sensory_pressIn_description": "If enabled all the touch events gets fired when a pressable is Pressed in, instead of waiting for Press out",
 
 	"settings_removeMyData_description": "Learn how we collect data and ask us to remove the collected data",
 	"settings_removeMyData_p1": "We do not collect Personally Identifiable Information (PII) for kids, minors or intellectually disabled users with appointed guardians.",
@@ -166,6 +171,7 @@
 	"button_add": "ADD",
 	"button_remove": "REMOVE",
 	"button_get_started": "Get Started",
+	"edit_profile": "Edit your profile",
 	"alert_yourDeviceDoesNotSupportTTS": "Your device doesn't support voice driver for this language. In order to use TTS capabilities, you need to install a voice driver. You can try 'Google TTS' app to install and manage drivers!",
 	"alert_ok": "OK",
 	"alert_cancel": "Cancel"

@@ -30,10 +30,9 @@ export default class App extends React.Component {
         <View style={styles.child}>
           <CachedImage uri={`${API.assetEndpoint}cards/avatar/${profile.avatar}.png?v=${API.version}`} resizeMode="contain" style={styles.childImage} />
         </View>
-        <View style={styles.active}><Text style={{fontWeight: "600", fontSize: 10, color: "#6989FF"}}>{API.t("settings_profile_active")}</Text></View>
         <View style={{alignItems: API.isRTL() ? "flex-end" : "flex-start", marginHorizontal: 10}}>
           <Text style={{fontSize: 22, color: "#fff", fontWeight: "bold"}}>{profile.name}</Text>
-          <Text style={[API.styles.sub, {marginHorizontal: 0, marginBottom: 0, color: "#fff", fontWeight: "normal"}]}>{API.t("settings_packs", API.isPremium() ? 50 : 10)}</Text>
+          <Text style={[API.styles.sub, {marginHorizontal: 0, marginBottom: 0, color: "#fff", fontWeight: "normal"}]}>{API.t("edit_profile")}</Text>
         </View>
         <View style={{flex: 1, justifyContent: API.isRTL() ? "flex-start" : "flex-end", alignItems: API.isRTL() ? "flex-start" : "flex-end", flexDirection: "row", alignItems: "center"}}>
           <Svg height={32} width={32} viewBox="0 0 24 24" style={{transform: [{rotateY: API.isRTL() ? "180deg" : "0deg"}]}}>

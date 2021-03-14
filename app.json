@@ -9,7 +9,8 @@
   "config": {
     "language": true,
     "tts": true,
-    "accent": true,
+    "accent": false,
+    "apps": true,
     "backgroundColor": "#63b582",
     "pFontColor": "#333333"
   },
