@@ -1,4 +1,4 @@
-package org.dreamoriented.template.generated;
+package org.dreamoriented.chamur.generated;
 
 import java.util.Arrays;
 import java.util.List;
@@ -9,10 +9,12 @@ public class BasePackageList {
     return Arrays.<Package>asList(
         new expo.modules.constants.ConstantsPackage(),
         new expo.modules.application.ApplicationPackage(),
+        new expo.modules.camera.CameraPackage(),
         new expo.modules.device.DevicePackage(),
         new expo.modules.errorrecovery.ErrorRecoveryPackage(),
         new expo.modules.filesystem.FileSystemPackage(),
         new expo.modules.font.FontLoaderPackage(),
+        new expo.modules.gl.GLPackage(),
         new expo.modules.haptics.HapticsPackage(),
         new expo.modules.imageloader.ImageLoaderPackage(),
         new expo.modules.inapppurchases.InAppPurchasesPackage(),

@@ -1,4 +1,4 @@
-package org.dreamoriented.template;
+package org.dreamoriented.chamur;
 
 import android.os.Bundle;
 

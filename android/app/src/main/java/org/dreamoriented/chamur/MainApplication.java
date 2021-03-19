@@ -1,4 +1,4 @@
-package org.dreamoriented.template;
+package org.dreamoriented.chamur;
 
 import android.app.Application;
 import android.content.Context;
@@ -10,7 +10,7 @@ import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
 import com.facebook.react.shell.MainReactPackage;
 import com.facebook.soloader.SoLoader;
-import org.dreamoriented.template.generated.BasePackageList;
+import org.dreamoriented.chamur.generated.BasePackageList;
 
 import org.unimodules.adapters.react.ReactAdapterPackage;
 import org.unimodules.adapters.react.ModuleRegistryAdapter;
@@ -62,7 +62,7 @@ public class MainApplication extends Application implements ReactApplication {
   }
 
   /**
-   * Loads Flipper in React Native templates.
+   * Loads Flipper in React Native chamurs.
    *
    * @param context
    */

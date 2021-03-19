@@ -1,15 +1,15 @@
 {
   "project_info": {
     "project_number": "820330775632",
-    "project_id": "template-3fe56",
-    "storage_bucket": "template-3fe56.appspot.com"
+    "project_id": "chamur-3fe56",
+    "storage_bucket": "chamur-3fe56.appspot.com"
   },
   "client": [
     {
       "client_info": {
         "mobilesdk_app_id": "1:820330775632:android:f338932447946fdd9cbd55",
         "android_client_info": {
-          "package_name": "org.dreamoriented.template"
+          "package_name": "org.dreamoriented.chamur"
         }
       },
       "oauth_client": [
