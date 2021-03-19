@@ -65,11 +65,11 @@ export function PredictionList({ predictions = [], gameOver }) {
   if(objects.length){
     return (
       <>
-      <View style={{justifyContent: "center", alignItems: "center", position: "absolute", top: 10, zIndex: 100, width: "100%"}}>
+      {predictions.length != 0 && <View style={{justifyContent: "center", alignItems: "center", position: "absolute", top: 10, zIndex: 100, width: "100%"}}>
         <View style={{backgroundColor: "rgba(255,255,255,0.7)", borderRadius: 20}}>
           <Text style={[API.styles.p, {marginBottom: 5}]}>{predictions[0].className}</Text>
         </View>
-      </View>
+      </View>}
       <View style={styles.container}>
         <WordItem width={"100%"} result={objects[objectIndex]} active={true} listen={() => API.speak(objects[objectIndex].title)}/>
         {false && predictions.map((p, i) => (
