@@ -94,6 +94,8 @@
   "setup_notification_description": "Kui soovite, et me saadaksime teile praktika meelde tuletamiseks märguandeid, saate märguanded lubada!",
   "setup_notification_badge_title": "Tule tagasi ja leia need kõik üles! 🐼",
   "setup_notification_badge_description": "Tule tagasi ja proovi leida kõik oma toas olevad esemed, nagu Scavenger Hunt stiilis!",
+  "setup_camera_title": "Juurdepääs kaamerale",
+  "setup_camera_description": "Leitud objektide tuvastamiseks on Chamuril vaja juurdepääsu kaamerale!",
   "setup_congrats_title": "Palju õnne, $1!",
   "setup_congrats_description": "Teie kasutajaprofiil on lõpule viidud. Võite hakata oma rakendust kasutama",
   "setup_welcome_description": "Täname teid Chamuri allalaadimise eest. Alustame teie rakenduse seadistamist vastavalt teie vajadustele.",

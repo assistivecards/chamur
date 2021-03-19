@@ -198,7 +198,7 @@ export default class Setting extends React.Component {
     return (
       <View style={{flex: 1}}>
         <View style={{flex: 1, justifyContent: "center", alignItems: "center", flexDirection: "column", padding: 30}}>
-          <Text style={[API.styles.h2, {color: "#fff", marginTop: 30, fontSize: 26, marginHorizontal: 0, textAlign: "center"}]}>{API.t("setup_camera_description")}</Text>
+          <Text style={[API.styles.h2, {color: "#fff", marginTop: 30, fontSize: 26, marginHorizontal: 0, textAlign: "center"}]}>{API.t("setup_camera_title")}</Text>
           <Text style={[API.styles.pHome, {marginBottom: 35, marginHorizontal: 0, textAlign: "center"}]}>{API.t("setup_camera_description")}</Text>
           <TouchableOpacity style={API.styles.whiteButton} onPress={() => this.cameraEnabled()}>
             <Text style={{color: API.config.backgroundColor, fontWeight: "bold", fontSize: 18}}>{API.t("alert_ok")}</Text>

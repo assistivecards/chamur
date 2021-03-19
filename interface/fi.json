@@ -94,6 +94,8 @@
   "setup_notification_description": "Jos haluat, että lähetämme sinulle ilmoituksia muistuttamaan sinua harjoittelemasta, voit ottaa ilmoitukset käyttöön!",
   "setup_notification_badge_title": "Tule takaisin ja löydä ne kaikki! 🐼",
   "setup_notification_badge_description": "Tule takaisin ja yritä löytää kaikki huoneesi esineet, Scavenger Hunt -tyyliin!",
+  "setup_camera_title": "Kameran käyttö",
+  "setup_camera_description": "Chamur vaatii kameran käyttöoikeuden löytämiesi esineiden tunnistamiseksi!",
   "setup_congrats_title": "Onnittelut, $1!",
   "setup_congrats_description": "Käyttäjäprofiilisi on valmis. Voit alkaa käyttää sovellustasi",
   "setup_welcome_description": "Kiitos Chamurin lataamisesta, aloitetaan sovelluksesi määrittäminen tarpeidesi mukaan.",

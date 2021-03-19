@@ -94,6 +94,8 @@
   "setup_notification_description": "Hvis du vil have os til at sende dig underretninger for at minde dig om at øve dig, kan du aktivere underretninger!",
   "setup_notification_badge_title": "Kom tilbage og find dem alle! 🐼",
   "setup_notification_badge_description": "Kom tilbage og prøv at finde alle objekterne i dit værelse, Scavenger Hunt-stil!",
+  "setup_camera_title": "Kameraadgang",
+  "setup_camera_description": "Chamur kræver kameraadgang for at genkende de objekter, du finder!",
   "setup_congrats_title": "Tillykke, $1!",
   "setup_congrats_description": "Din brugerprofil er afsluttet. Du kan begynde at bruge din app",
   "setup_welcome_description": "Tak fordi du downloadede Chamur, lad os komme i gang med at konfigurere din app til dine behov.",

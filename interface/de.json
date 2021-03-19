@@ -94,6 +94,8 @@
   "setup_notification_description": "Wenn Sie möchten, dass wir Ihnen Benachrichtigungen senden, um Sie an das Üben zu erinnern, können Sie Benachrichtigungen aktivieren!",
   "setup_notification_badge_title": "Komm zurück und finde sie alle! 🐼",
   "setup_notification_badge_description": "Komm zurück und versuche alle Objekte in deinem Zimmer zu finden, im Stil der Schnitzeljagd!",
+  "setup_camera_title": "Kamerazugriff",
+  "setup_camera_description": "Chamur benötigt Kamerazugriff, um die gefundenen Objekte zu erkennen!",
   "setup_congrats_title": "Glückwunsch, $1!",
   "setup_congrats_description": "Ihr Benutzerprofil wurde vervollständigt. Sie können Ihre App verwenden",
   "setup_welcome_description": "Vielen Dank, dass Sie Chamur heruntergeladen haben. Beginnen wir mit der Einrichtung Ihrer App für Ihre Anforderungen.",

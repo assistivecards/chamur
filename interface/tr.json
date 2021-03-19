@@ -94,6 +94,8 @@
   "setup_notification_description": "Pratik yapmanızı hatırlatmak için size bildirimler göndermemizi isterseniz, bildirimleri etkinleştirebilirsiniz!",
   "setup_notification_badge_title": "Geri dönün ve hepsini bulun! 🐼",
   "setup_notification_badge_description": "Geri dönün ve odanızdaki tüm nesneleri bulmaya çalışın, Çöpçü Avı tarzı!",
+  "setup_camera_title": "Kamera Erişimi",
+  "setup_camera_description": "Chamur, bulduğunuz nesneleri tanımak için kamera erişimine ihtiyaç duyar!",
   "setup_congrats_title": "Tebrikler, $1!",
   "setup_congrats_description": "Kullanıcı profiliniz tamamlandı. Uygulamanızı kullanmaya başlayabilirsiniz",
   "setup_welcome_description": "Chamur'u indirdiğiniz için teşekkür ederiz, uygulamanızı ihtiyaçlarınıza göre ayarlamaya başlayalım.",

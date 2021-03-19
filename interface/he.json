@@ -94,6 +94,8 @@
   "setup_notification_description": "אם אתה רוצה שנשלח לך התראות כדי להזכיר לך להתאמן, תוכל להפעיל התראות!",
   "setup_notification_badge_title": "חזור ומצא את כולם! 🐼",
   "setup_notification_badge_description": "חזור ונסה למצוא את כל האובייקטים בחדר שלך, בסגנון ציד נבלות!",
+  "setup_camera_title": "גישה למצלמה",
+  "setup_camera_description": "Chamur דורש גישה למצלמה על מנת לזהות את האובייקטים שאתה מוצא!",
   "setup_congrats_title": "מזל טוב, $1!",
   "setup_congrats_description": "פרופיל המשתמש שלך הושלם. אתה יכול להתחיל להשתמש באפליקציה שלך",
   "setup_welcome_description": "תודה שהורדת את Chamur, בוא נתחיל בהגדרת האפליקציה שלך לצרכים שלך.",

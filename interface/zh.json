@@ -94,6 +94,8 @@
   "setup_notification_description": "如果您希望我们向您发送通知以提醒您练习，则可以启用通知！",
   "setup_notification_badge_title": "回来找他们！ 🐼",
   "setup_notification_badge_description": "回来找寻寻宝游戏风格的房间中所有物体！",
+  "setup_camera_title": "摄像头访问",
+  "setup_camera_description": "Chamur需要使用摄像头才能识别找到的物体！",
   "setup_congrats_title": "恭喜，$1！",
   "setup_congrats_description": "您的用户个人资料已完成。您可以开始使用您的应用了",
   "setup_welcome_description": "感谢您下载Chamur，让我们开始根据您的需要设置应用程序。",
