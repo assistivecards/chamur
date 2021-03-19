@@ -7,6 +7,7 @@ import { Easing, Animated } from 'react-native';
 import Home from './layouts/Home'
 import ExampleStack from './layouts/ExampleStack'
 import ExampleModalStack from './layouts/ExampleModalStack'
+import GameOver from './layouts/GameOver'
 
 
 import Settings from './layouts/Settings/Settings'
@@ -77,7 +78,7 @@ function forVertical(props) {
 const RootNavigator = createAppContainer(AppNavigator);
 const ModelNavigator = createStackNavigator({
     Root:               { screen: RootNavigator        },
-    ExampleModalStack:  { screen: ExampleModalStack    }
+    GameOver:           { screen: GameOver             }
     // Your modal stack Navigators here
 
 

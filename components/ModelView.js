@@ -3,28 +3,36 @@ import * as mobilenet from "@tensorflow-models/mobilenet";
 import { cameraWithTensors } from "@tensorflow/tfjs-react-native";
 import { Camera } from "expo-camera";
 import React from "react";
-import { StyleSheet, useWindowDimensions, View } from "react-native";
+import { StyleSheet, useWindowDimensions, View, ActivityIndicator, Text } from "react-native";
 import { LoadingView } from "./LoadingView";
 import { PredictionList } from "./PredictionList";
+import API from '../api';
 
 import { useTensorFlowModel } from "./useTensorFlow";
 
 const TensorCamera = cameraWithTensors(Camera);
 
-export function ModelView() {
+export function ModelView({gameOver}) {
   const model = useTensorFlowModel(mobilenet);
   const [predictions, setPredictions] = React.useState([]);
 
   if (!model) {
-    return <LoadingView>Loading TensorFlow model</LoadingView>;
+    return(
+      <View style={{flex: 1, backgroundColor: API.config.backgroundColor, justifyContent: "center", alignItems: "center"}}>
+        <View style={{width: 60, height: 60, backgroundColor: "#fff", alignItems: "center", justifyContent: "center", borderRadius: 30}}>
+          <ActivityIndicator color={API.config.backgroundColor}/>
+        </View>
+        <Text style={[API.styles.b, {marginTop: 15, color: "#fff"}]}>{API.t("please_wait")}</Text>
+      </View>
+    );
   }
 
   return (
     <View
       style={{ flex: 1, backgroundColor: "#63b582", justifyContent: "center" }}
     >
-      <PredictionList predictions={predictions} />
-      <View style={{ borderRadius: 20, overflow: "hidden" }}>
+      <PredictionList predictions={predictions} gameOver={gameOver}/>
+      <View style={{ borderRadius: 25, overflow: "hidden" }}>
         <ModelCamera model={model} setPredictions={setPredictions} />
       </View>
     </View>

@@ -108,8 +108,8 @@
 
 	"setup_notification_title": "Practice Reminder",
 	"setup_notification_description": "If you want us to send you notifications to remind you to practice, you can enable notifications!",
-	"setup_notification_badge_title": "Come back and practice! 🦙",
-	"setup_notification_badge_description": "Regular practice is very important for learning, let's start another session.",
+	"setup_notification_badge_title": "Come back and find them all! 🐼",
+	"setup_notification_badge_description": "Come back and try to find all the objects in your room, Scavenger Hunt style!",
 
 	"setup_congrats_title": "Congratulations, $1!",
 	"setup_congrats_description": "Your user profile has been completed. You can start using your app",
@@ -130,7 +130,6 @@
 	"home_title": "Let's start training...",
 	"home_premium": "Premium",
 	"home_settings": "Settings",
-
 
 
 	"premium_title": "Unlock Chamur Premium!",
@@ -159,10 +158,16 @@
 	"premium_promo_desc1": "Subscribe to get more",
 	"premium_promo_desc2": "Try 3 days for free",
 
-
 	"card_header_subtitle": "Let's train and learn saying the words in $1 category.",
 	"card_button_start_training": "Start Training",
-
+	"find_the_object": "Find the Object",
+	"camera_permission": "Camera permission is required to continue",
+	"camera_loading": "Loading the Camera",
+	"please_wait": "Please wait, might take a while!",
+	"start_playing": "Start Playing",
+	"skip": "Skip",
+	"lets_find": "Let's find",
+	"restart_playing": "Restart Game",
 
 	"button_next": "Next",
 	"button_start": "Start",

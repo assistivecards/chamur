@@ -15,7 +15,8 @@ export default class Setting extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      orientation: "portrait"
+      orientation: "portrait",
+      game: false
     }
 
     ScreenOrientation.getOrientationAsync().then(orientation => {
@@ -30,6 +31,12 @@ export default class Setting extends React.Component {
     API.event.on("refresh", this._refreshHandler)
     API.event.on("premium", this._refreshHandler)
     this.orientationSubscription = ScreenOrientation.addOrientationChangeListener(this._orientationChanged.bind(this));
+
+    this.setState({game: true})
+
+    this.focusListener = this.props.navigation.addListener("didFocus", () => {
+      this.setState({game: true})
+    });
   }
 
   _orientationChanged(orientation){
@@ -52,9 +59,14 @@ export default class Setting extends React.Component {
   }
 
   openSettings(){
+    this.setState({game: false})
     this.props.navigation.navigate("Settings");
   }
 
+  gameOver(){
+    this.setState({game: false})
+    this.props.navigation.navigate("GameOver");
+  }
 
   async getPacks(packs, force){
     let allPacks = await API.getPacks(force);
@@ -73,7 +85,7 @@ export default class Setting extends React.Component {
         style={{position: "relative", zIndex: 99, height: 130}}
       >
         <View style={{flexDirection: "row", justifyContent: "space-between", alignItems: "center", marginTop: 50}}>
-          <Text style={[API.styles.h2, {fontWeight: "bold", color: "rgba(255,255,255,0.8)", marginVertical: 0, marginTop: 0}]}>Find the Object</Text>
+          <Text style={[API.styles.h2, {fontWeight: "bold", color: "rgba(255,255,255,0.8)", marginVertical: 0, marginTop: 0}]}>{API.t("find_the_object")}</Text>
           <TouchableOpacity onPress={() => this.openSettings()}>
             <View style={{backgroundColor: "#fff", padding: 5, borderRadius: 30, width: 50, marginRight: 20, height: 50, overflow: "hidden"}}>
               <CachedImage uri={`${API.assetEndpoint}cards/avatar/${API.user.avatar}.png?v=${API.version}`}
@@ -84,7 +96,9 @@ export default class Setting extends React.Component {
           </TouchableOpacity>
         </View>
       </LinearGradient>
-        <Tensor />
+        {this.state.game &&
+          <Tensor gameOver={() => this.gameOver()}/>
+        }
         <View style={{height: 50}}></View>
       </View>
     )

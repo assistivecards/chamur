@@ -392,47 +392,6 @@ class Api {
 		}
 	}
 
-	async getObjects(){
-		return [
-			"water-bottle",
-			"cup",
-			"keyboard",
-			"computer",
-			"monitor",
-			"joystick",
-			"pencil",
-			"eraser",
-			"sharpener",
-			"fan",
-			"radiator",
-			"cellphone",
-			"backpack",
-			"chair",
-			"teapot",
-			"soap-dispenser",
-			"sock",
-			"desk",
-			"printer",
-			"stove",
-			"frying-pan",
-			"bed",
-			"paper-towel",
-			"curtain",
-			"couch",
-			"ruler",
-			"wardrobe",
-			"rug",
-			"toaster",
-			"scale",
-			"remote-control",
-			"trash-bin",
-			"plastic-bag",
-			"laptop",
-			"pillow",
-			"coffee-mug"
-		]
-	}
-
 	async ramCards(slugArray, force){
 		// We need to ram things hereé!
 	}

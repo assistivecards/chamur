@@ -11,6 +11,7 @@
     "tts": true,
     "accent": false,
     "apps": true,
+    "premium": false,
     "backgroundColor": "#63b582",
     "pFontColor": "#333333"
   },
