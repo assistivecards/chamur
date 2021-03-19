@@ -94,6 +94,8 @@
   "setup_notification_description": "Als je wilt dat we je meldingen sturen om je eraan te herinneren om te oefenen, kun je meldingen inschakelen!",
   "setup_notification_badge_title": "Kom terug en vind ze allemaal!​",
   "setup_notification_badge_description": "Kom terug en probeer alle objecten in je kamer te vinden, Scavenger Hunt-stijl!",
+  "setup_camera_title": "Cameratoegang",
+  "setup_camera_description": "Chamur heeft cameratoegang nodig om de objecten die je vindt te herkennen!",
   "setup_congrats_title": "Gefeliciteerd, $1!",
   "setup_congrats_description": "Uw gebruikersprofiel is voltooid. U kunt uw app gaan gebruiken",
   "setup_welcome_description": "Bedankt voor het downloaden van Chamur, laten we beginnen met het instellen van uw app volgens uw behoeften.",

@@ -94,6 +94,8 @@
   "setup_notification_description": "Dacă doriți să vă trimitem notificări pentru a vă reaminti să practicați, puteți activa notificările!",
   "setup_notification_badge_title": "Întoarce-te și găsește-le pe toate! 🐼",
   "setup_notification_badge_description": "Întoarce-te și încearcă să găsești toate obiectele din camera ta, în stilul Vânătorului de Scavenger!",
+  "setup_camera_title": "Acces la cameră",
+  "setup_camera_description": "Chamur necesită acces la cameră pentru a recunoaște obiectele pe care le găsești!",
   "setup_congrats_title": "Felicitări, $1!",
   "setup_congrats_description": "Profilul dvs. de utilizator a fost completat. Puteți începe să utilizați aplicația",
   "setup_welcome_description": "Vă mulțumim că ați descărcat Chamur, să începem să configurați aplicația în funcție de nevoile dvs.",

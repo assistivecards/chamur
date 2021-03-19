@@ -94,6 +94,8 @@
   "setup_notification_description": "Nếu bạn muốn chúng tôi gửi thông báo để nhắc bạn luyện tập, bạn có thể bật thông báo!",
   "setup_notification_badge_title": "Hãy quay lại và tìm tất cả chúng! 🐼",
   "setup_notification_badge_description": "Hãy quay lại và cố gắng tìm tất cả các đồ vật trong phòng của bạn, theo phong cách Scavenger Hunt!",
+  "setup_camera_title": "Quyền truy cập máy ảnh",
+  "setup_camera_description": "Chamur yêu cầu quyền truy cập máy ảnh để nhận ra các đối tượng bạn tìm thấy!",
   "setup_congrats_title": "Xin chúc mừng, $1!",
   "setup_congrats_description": "Hồ sơ người dùng của bạn đã được hoàn thành. Bạn có thể bắt đầu sử dụng ứng dụng của mình",
   "setup_welcome_description": "Cảm ơn bạn đã tải xuống Chamur, hãy bắt đầu thiết lập ứng dụng theo nhu cầu của bạn.",

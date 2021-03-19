@@ -94,6 +94,8 @@
   "setup_notification_description": "Ha azt szeretné, hogy értesítéseket küldjünk Önnek, hogy emlékeztessük a gyakorlásra, engedélyezheti az értesítéseket!",
   "setup_notification_badge_title": "Gyere vissza, és találd meg mindet! 🐼",
   "setup_notification_badge_description": "Gyere vissza, és próbáld megtalálni a szobád összes tárgyát, Scavenger Hunt stílusban!",
+  "setup_camera_title": "Hozzáférés a kamerához",
+  "setup_camera_description": "A Chamur kamera hozzáférést igényel a megtalált tárgyak felismeréséhez!",
   "setup_congrats_title": "Gratulálunk, $1!",
   "setup_congrats_description": "Felhasználói profilja elkészült. Elkezdheti használni az alkalmazását",
   "setup_welcome_description": "Köszönjük, hogy letöltötte a Chamur alkalmazást. Kezdjük az alkalmazás igényeinek megfelelő beállításával.",

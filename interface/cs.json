@@ -94,6 +94,8 @@
   "setup_notification_description": "Pokud chcete, abychom vám zasílali oznámení, abychom vám připomněli, abyste si procvičili, můžete povolit oznámení!",
   "setup_notification_badge_title": "Vraťte se a najděte je všechny! 🐼",
   "setup_notification_badge_description": "Vraťte se a zkuste najít všechny předměty ve vašem pokoji ve stylu Scavenger Hunt!",
+  "setup_camera_title": "Přístup k fotoaparátu",
+  "setup_camera_description": "Chamur vyžaduje přístup k fotoaparátu, aby rozpoznal objekty, které najdete!",
   "setup_congrats_title": "Gratulujeme, $1!",
   "setup_congrats_description": "Váš uživatelský profil byl dokončen. Svou aplikaci můžete začít používat",
   "setup_welcome_description": "Děkujeme, že jste si stáhli Chamur, pojďme začít s nastavením vaší aplikace podle vašich potřeb.",

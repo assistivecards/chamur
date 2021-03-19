@@ -94,6 +94,8 @@
   "setup_notification_description": "Jika Anda ingin kami mengirimkan pemberitahuan untuk mengingatkan Anda untuk berlatih, Anda dapat mengaktifkan pemberitahuan!",
   "setup_notification_badge_title": "Kembalilah dan temukan semuanya! 🐼",
   "setup_notification_badge_description": "Kembalilah dan coba temukan semua benda di kamar Anda, gaya Perburuan Pemulung!",
+  "setup_camera_title": "Akses Kamera",
+  "setup_camera_description": "Chamur membutuhkan akses kamera untuk mengenali objek yang Anda temukan!",
   "setup_congrats_title": "Selamat, $1!",
   "setup_congrats_description": "Profil pengguna Anda telah selesai. Anda dapat mulai menggunakan aplikasi Anda",
   "setup_welcome_description": "Terima kasih telah mengunduh Chamur, mari mulai menyiapkan aplikasi sesuai kebutuhan Anda.",

@@ -94,6 +94,8 @@
   "setup_notification_description": "Si vous souhaitez que nous vous envoyions des notifications pour vous rappeler de pratiquer, vous pouvez activer les notifications!",
   "setup_notification_badge_title": "Revenez et trouvez-les tous! 🐼",
   "setup_notification_badge_description": "Revenez et essayez de trouver tous les objets dans votre chambre, à la manière de la chasse au trésor!",
+  "setup_camera_title": "Accès à la caméra",
+  "setup_camera_description": "Chamur nécessite un accès caméra afin de reconnaître les objets que vous trouvez!",
   "setup_congrats_title": "Félicitations, $1!",
   "setup_congrats_description": "Votre profil utilisateur a été complété. Vous pouvez commencer à utiliser votre application",
   "setup_welcome_description": "Merci d'avoir téléchargé Chamur, commençons par configurer votre application selon vos besoins.",

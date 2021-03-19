@@ -94,6 +94,8 @@
   "setup_notification_description": "練習を促す通知を送信したい場合は、通知を有効にすることができます。",
   "setup_notification_badge_title": "戻ってきて、それらすべてを見つけてください！ 🐼",
   "setup_notification_badge_description": "戻ってきて、部屋にあるすべてのオブジェクトを見つけてみてください。スカベンジャーハントスタイルです。",
+  "setup_camera_title": "カメラアクセス",
+  "setup_camera_description": "Chamurは、見つけたオブジェクトを認識するためにカメラにアクセスする必要があります。",
   "setup_congrats_title": "おめでとう、$1！",
   "setup_congrats_description": "ユーザープロファイルが完成しました。あなたはあなたのアプリを使い始めることができます",
   "setup_welcome_description": "Chamurをダウンロードしていただき、ありがとうございます。ニーズに合わせてアプリのセットアップを始めましょう。",

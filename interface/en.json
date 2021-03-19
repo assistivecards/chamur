@@ -110,6 +110,8 @@
 	"setup_notification_description": "If you want us to send you notifications to remind you to practice, you can enable notifications!",
 	"setup_notification_badge_title": "Come back and find them all! 🐼",
 	"setup_notification_badge_description": "Come back and try to find all the objects in your room, Scavenger Hunt style!",
+	"setup_camera_title": "Camera Access",
+	"setup_camera_description": "Chamur requires camera access in order to recognize the objects you find!",
 
 	"setup_congrats_title": "Congratulations, $1!",
 	"setup_congrats_description": "Your user profile has been completed. You can start using your app",
