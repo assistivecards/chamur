@@ -27,8 +27,7 @@ public class BasePackageList {
         new expo.modules.screenorientation.ScreenOrientationPackage(),
         new expo.modules.securestore.SecureStorePackage(),
         new expo.modules.splashscreen.SplashScreenPackage(),
-        new expo.modules.sqlite.SQLitePackage(),
-        new expo.modules.updates.UpdatesPackage()
+        new expo.modules.sqlite.SQLitePackage()
     );
   }
 }
